@@ -7,6 +7,8 @@
  */
 'use strict';
 
+typescript;
+
 // Makes the script crash on unhandled rejections instead of silently
 // ignoring them. In the future, promise rejections that are not handled will
 // terminate the Node.js process with a non-zero exit code.
@@ -91,7 +93,7 @@ module.exports = function(
   // Copy over some of the devDependencies
   appPackage.dependencies = appPackage.dependencies || {};
 
-  const useTypeScript = appPackage.dependencies['typescript'] != null;
+  const useTypeScript = true;
 
   // Setup the script rules
   appPackage.scripts = {
@@ -255,7 +257,11 @@ module.exports = function(
     );
   }
   console.log();
-  console.log('Happy hacking!');
+  console.log(chalk.red('THIS IS A CUSTOM CONFIGURATION:'));
+  console.log(
+    'We have set up this script to use Typescript, enzyme, and prettify,'
+  );
+  console.log('to offer a complete Ts/TDD experience');
 };
 
 function isReactInstalled(appPackage) {
